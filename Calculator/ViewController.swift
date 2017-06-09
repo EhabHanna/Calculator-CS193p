@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var operationsDisplay: UILabel!
+    
     var userIsInTheMiddleOfTyping = false
     var userEnteredFloat = false
    
