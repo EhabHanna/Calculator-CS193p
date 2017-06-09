@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var operationsDisplay: UILabel!
+    
     var userIsInTheMiddleOfTyping = false
     var userEnteredFloat = false
    
@@ -48,6 +50,14 @@ class ViewController: UIViewController {
         }
     }
     
+    private func updateOperationsDisplay(){
+        if brain.resultIsPending {
+            operationsDisplay.text = brain.description! + "..."
+        }else{
+            operationsDisplay.text = brain.description! + "="
+        }
+    }
+    
     var displayValue :Double {
         
         get{
@@ -74,6 +84,7 @@ class ViewController: UIViewController {
         
         if let mathematicalSymbol = sender.currentTitle{
             brain.performOperation(mathematicalSymbol)
+            updateOperationsDisplay()
         }
         
         if let result = brain.result{

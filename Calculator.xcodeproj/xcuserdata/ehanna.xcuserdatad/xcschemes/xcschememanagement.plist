@@ -6,18 +6,20 @@
 	<dict>
 		<key>Calculator.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
-		</dict>
-		<key>Copy of Calculator.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>B20853911EE8D9C300970803</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B215FABD1EEA9180005A4826</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,3 +1,8 @@
 
+<<<<<<< HEAD
 .DS_Store
 *.xcuserstate
+=======
+*.xcuserstate
+.DS_Store
+>>>>>>> operations-Display

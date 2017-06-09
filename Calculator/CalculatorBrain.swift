@@ -72,7 +72,14 @@ struct CalculatorBrain {
                     
                     updateDescription(forOpWithSymbol: symbol)
                     unaryOperationUsed = false
+                    
+                    if pendingBinaryOperation != nil{
+                        
+                        updateDescription(with: String("\(accumulator!)"))
+                        performPendingBinaryOperation()
+                    }
                     pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: accumulator!)
+                    
                     accumulator = nil
                     updateDescription(with: String(" \(symbol) "))
                 }
@@ -111,9 +118,11 @@ struct CalculatorBrain {
         if let operation = operations[symbol]{
             
             switch operation {
-            case .constant: break
                 
-            case .unaryOperation:
+            case .constant(_):
+                break
+                
+            case .unaryOperation(_):
                 
                 if descriptionString.characters.count>0 {
                     
@@ -131,7 +140,7 @@ struct CalculatorBrain {
                     }
                 }
                 
-            case .binaryOperation:
+            case .binaryOperation(_):
                 
                 if accumulator != nil {
                     
