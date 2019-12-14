@@ -31,6 +31,30 @@ class CalculatorUITests: XCTestCase {
         super.tearDown()
     }
     
+    func testMinimalExistanceOfDigits() {
+        for i in 0...9
+        {
+            XCTAssertTrue(app.buttons["\(i)"].exists, "There should be a button for \(i)")
+        }
+    }
+    
+    func testMinimalExistanceOfOps() {
+        XCTAssertTrue(app.buttons["+"].exists, "App should support addition")
+        XCTAssertTrue(app.buttons["-"].exists, "App should support subtraction")
+        XCTAssertTrue(app.buttons["/"].exists, "App should support division")
+        XCTAssertTrue(app.buttons["*"].exists, "App should support multiplication")
+    }
+    
+    func testUserEntry() {
+        app.buttons["7"].tap()
+        XCTAssertTrue(app.staticTexts["7"].exists, "App should have shown 7 on a display somewhere")
+        app.buttons["9"].tap()
+        XCTAssertTrue(app.staticTexts["79"].exists, "App should have shown 79 on a display somewhere")
+        app.buttons["2"].tap()
+        XCTAssertTrue(app.staticTexts["792"].exists, "App should have shown 792 on a display somewhere")
+        
+    }
+    
     func testPendingBinaryOp() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

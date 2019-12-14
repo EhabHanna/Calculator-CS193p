@@ -81,7 +81,6 @@ class ViewController: UIViewController {
         
         }
         
-        
         if let mathematicalSymbol = sender.currentTitle{
             brain.performOperation(mathematicalSymbol)
             updateOperationsDisplay()
@@ -89,6 +88,9 @@ class ViewController: UIViewController {
         
         if let result = brain.result{
             displayValue = result
+        }
+        else if !brain.resultIsPending{
+            displayValue = 0
         }
     }
 
