@@ -11,8 +11,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run Tests
       run: xcodebuild -project 'Calculator.xcodeproj' -scheme 'Calculator' -destination 'platform=iOS Simulator,name=iPhone 11' test
-    - name: Run UITests
-      run: xcodebuild -project 'Calculator.xcodeproj' -scheme 'CalculatorUITests' -destination 'platform=iOS Simulator,name=iPhone 11' test
     - name: Build app
       run: xcodebuild -project 'Calculator.xcodeproj' -scheme 'Calculator' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO
 
