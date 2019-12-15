@@ -24,6 +24,96 @@ class CalculatorTests: XCTestCase {
         super.tearDown()
     }
     
+    func testAddition(){
+        brain.setOperand(3.0)
+        brain.performOperation("+")
+        brain.setOperand(7.0)
+        brain.performOperation("=")
+        if let res = brain.result
+        {
+            XCTAssert(res == 10.0, "your result is \(res) it should be 10.0")
+        }
+        else
+        {
+            XCTFail("your result is nil")
+        }
+    }
+    
+    func testSubtractionPositive(){
+        brain.setOperand(7.0)
+        brain.performOperation("-")
+        brain.setOperand(3.0)
+        brain.performOperation("=")
+        if let res = brain.result
+        {
+            XCTAssert(res == 4.0, "your result is \(res) it should be 4.0")
+        }
+        else
+        {
+            XCTFail("your result is nil")
+        }
+    }
+    
+    func testSubtractionNegative(){
+        brain.setOperand(3.0)
+        brain.performOperation("-")
+        brain.setOperand(7.0)
+        brain.performOperation("=")
+        if let res = brain.result
+        {
+            XCTAssert(res == -4.0, "your result is \(res) it should be -4.0")
+        }
+        else
+        {
+            XCTFail("your result is nil")
+        }
+    }
+    
+    func testSubtractionNegativeOperand(){
+        brain.setOperand(3.0)
+        brain.performOperation("-")
+        brain.setOperand(-7.0)
+        brain.performOperation("=")
+        if let res = brain.result
+        {
+            XCTAssert(res == 10.0, "your result is \(res) it should be 10.0")
+        }
+        else
+        {
+            XCTFail("your result is nil")
+        }
+    }
+    
+    func testMultiplication(){
+        brain.setOperand(3.0)
+        brain.performOperation("*")
+        brain.setOperand(7.0)
+        brain.performOperation("=")
+        if let res = brain.result
+        {
+            XCTAssert(res == 21.0, "your result is \(res) it should be 21.0")
+        }
+        else
+        {
+            XCTFail("your result is nil")
+        }
+    }
+    
+    func testDivision(){
+        brain.setOperand(35.0)
+        brain.performOperation("/")
+        brain.setOperand(7.0)
+        brain.performOperation("=")
+        if let res = brain.result
+        {
+            XCTAssert(res == 5.0, "your result is \(res) it should be 5.0")
+        }
+        else
+        {
+            XCTFail("your result is nil")
+        }
+    }
+    
     
     func testBinaryOpNoPending(){
         brain.setOperand(7.0)
